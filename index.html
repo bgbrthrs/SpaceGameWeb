@@ -5,29 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpaceGameAR | Mission Alpha</title>
     <style>
-
-        <script>
-    const signupBtn = document.querySelector('.cta-button[style*="padding: 10px 25px"]');
-    
-    signupBtn.onclick = (e) => {
-        e.preventDefault();
-        alert("SpaceGameAR Platformuna Hoş Geldiniz! Çok yakında burada kendi AR dünyanızı kurabileceksiniz. 🚀");
-    };
-</script>
-
-
         body {
             margin: 0;
-            background: #0a0a0a;
+            background-color: #0a0a0a; /* Siyah Arka Plan */
             color: #00FF00;
             font-family: 'Segoe UI', sans-serif;
-            overflow: hidden; /* Sayfanın sağa sola kaymasını engeller */
-        }
-
-        /* Yıldız Animasyonu */
-        @keyframes move-stars {
-            from { transform: translateY(0); }
-            to { transform: translateY(-1000px); }
+            overflow: hidden;
         }
 
         #stars {
@@ -42,10 +25,22 @@
             opacity: 0.5;
         }
 
-        <nav style="position: absolute; top: 0; width: 100%; padding: 20px; display: flex; justify-content: flex-end; box-sizing: border-box; z-index: 10;">
-    <a href="#" style="color: #fff; text-decoration: none; margin-right: 20px; align-self: center; font-weight: 500;">Giriş Yap</a>
-    <a href="#" class="cta-button" style="padding: 10px 25px; font-size: 0.9rem;">Ücretsiz Kaydol</a>
-</nav>
+        @keyframes move-stars {
+            from { transform: translateY(0); }
+            to { transform: translateY(-1000px); }
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 50px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-sizing: border-box;
+            z-index: 100;
+        }
 
         .hero {
             height: 100vh;
@@ -65,13 +60,6 @@
             text-shadow: 0 0 20px #00FF00;
         }
 
-        p {
-            font-size: 1.2rem;
-            color: #fff;
-            opacity: 0.8;
-            margin: 20px 0;
-        }
-
         .cta-button {
             padding: 15px 40px;
             border: 2px solid #00FF00;
@@ -82,6 +70,7 @@
             transition: 0.3s;
             text-decoration: none;
             border-radius: 50px;
+            margin-top: 20px;
         }
 
         .cta-button:hover {
@@ -89,25 +78,29 @@
             color: black;
             box-shadow: 0 0 30px #00FF00;
         }
-        nav a:hover {
-    opacity: 1 !important;
-    text-shadow: 0 0 10px #fff;
-}
     </style>
 </head>
 <body>
 
     <div id="stars"></div>
-    <nav style="position: fixed; top: 0; width: 100%; padding: 25px 50px; display: flex; justify-content: flex-end; align-items: center; box-sizing: border-box; z-index: 100;">
-    <a href="#" style="color: #fff; text-decoration: none; margin-right: 30px; font-family: sans-serif; font-size: 0.9rem; font-weight: 500; opacity: 0.8; transition: 0.3s;">Giriş Yap</a>
-    <a href="#" class="cta-button" style="padding: 10px 25px; font-size: 0.85rem; margin-top: 0;">Ücretsiz Kaydol</a>
-</nav>
+
+    <nav>
+        <a href="#" style="color: #fff; text-decoration: none; margin-right: 30px; font-size: 0.9rem; opacity: 0.8;">Giriş Yap</a>
+        <a href="#" class="cta-button" style="padding: 10px 25px; font-size: 0.85rem; margin-top: 0;">Ücretsiz Kaydol</a>
+    </nav>
 
     <div class="hero">
         <h1>SPACE GAME AR</h1>
-        <p>Gerçek Dünya, Senin Oyun Alanın.</p>
+        <p style="color: #fff; opacity: 0.8;">Gerçek Dünya, Senin Oyun Alanın.</p>
         <a href="https://github.com/bgbrthrs/SpaceGameAR" target="_blank" class="cta-button">GITHUB'DA İNCELE</a>
     </div>
+
+    <script>
+        // Kaydol butonuna tıklandığında mesaj ver
+        document.querySelectorAll('.cta-button')[0].onclick = () => {
+             alert("SpaceGameAR SaaS Platformu yakında sizlerle!");
+        };
+    </script>
 
 </body>
 </html>
