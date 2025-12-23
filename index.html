@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpaceGameAR | Mission Alpha</title>
     <style>
-        body {
-    margin: 0;
-    background-color: #0a0a0a;
-    color: #00FF00;
-    font-family: 'Segoe UI', sans-serif;
-    /* overflow: hidden;  <-- BU SATIRI SİL VEYA DEĞİŞTİR */
-    overflow-x: hidden; /* Sadece sağa kaymayı engeller, aşağı kaymaya izin verir */
-}
+        /* KRİTİK AYAR: Sayfanın aşağı kaymasına izin verir */
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #0a0a0a;
+            color: #00FF00;
+            font-family: 'Segoe UI', sans-serif;
+            overflow-x: hidden; /* Sağa kaymayı engeller */
+            overflow-y: auto;   /* AŞAĞI KAYMAYI AKTİF EDER */
+            height: auto;
+            min-height: 100%;
+        }
 
         #stars {
             position: fixed;
@@ -23,7 +27,7 @@
             background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
             animation: move-stars 100s linear infinite;
             z-index: -1;
-            opacity: 0.5;
+            opacity: 0.4;
         }
 
         @keyframes move-stars {
@@ -31,18 +35,33 @@
             to { transform: translateY(-1000px); }
         }
 
+        /* ÜST MENÜ */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 25px 50px;
+            padding: 20px 50px;
             display: flex;
             justify-content: flex-end;
             align-items: center;
             box-sizing: border-box;
             z-index: 100;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(5px);
         }
 
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 25px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+
+        nav a:hover { opacity: 1; text-shadow: 0 0 10px #fff; }
+
+        /* ANA EKRAN BÖLÜMÜ */
         .hero {
             height: 100vh;
             display: flex;
@@ -53,121 +72,10 @@
             background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
         }
 
-        <section id="pricing" style="padding: 100px 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; background: #000; position: relative; z-index: 10;">
-    
-    <div style="border: 1px solid #333; padding: 40px; border-radius: 20px; width: 280px; text-align: center; background: rgba(255,255,255,0.02); transition: 0.3s;">
-        <h3 style="color: #fff; margin-top: 0;">Uzay Yolcusu</h3>
-        <p style="font-size: 2.5rem; margin: 20px 0; color: #fff;">$0 <span style="font-size: 1rem; opacity: 0.5;">/ay</span></p>
-        <ul style="list-style: none; padding: 0; color: #ccc; line-height: 2.5; font-size: 0.9rem;">
-            <li>✓ 1 Aktif AR Sahnesi</li>
-            <li>✓ Temel Uzay Modelleri</li>
-            <li>✓ Topluluk Desteği</li>
-        </ul>
-        <a href="#" class="cta-button" style="display: block; padding: 12px; margin-top: 25px; font-size: 0.8rem; text-align: center;">Hemen Başla</a>
-    </div>
-
-    <div style="border: 2px solid #00FF00; padding: 40px; border-radius: 20px; width: 280px; text-align: center; background: rgba(0, 255, 0, 0.03); box-shadow: 0 0 30px rgba(0, 255, 0, 0.1); position: relative; transform: scale(1.05);">
-        <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #00FF00; color: #000; padding: 5px 15px; border-radius: 20px; font-size: 0.7rem; font-weight: bold;">EN POPÜLER</div>
-        <h3 style="color: #00FF00; margin-top: 0;">Filo Komutanı</h3>
-        <p style="font-size: 2.5rem; margin: 20px 0; color: #fff;">$19 <span style="font-size: 1rem; opacity: 0.5;">/ay</span></p>
-        <ul style="list-style: none; padding: 0; color: #fff; line-height: 2.5; font-size: 0.9rem;">
-            <li>✓ Sınırsız AR Sahnesi</li>
-            <li>✓ Özel 3D Gemi Editörü</li>
-            <li>✓ 7/24 Teknik Destek</li>
-            <li>✓ Reklamsız Deneyim</li>
-        </ul>
-        <a href="#" class="cta-button" style="display: block; padding: 12px; margin-top: 25px; font-size: 0.8rem; background: #00FF00; color: #000; text-align: center;">Satın Al</a>
-    </div>
-
-</section>
-
- <section id="pricing" style="padding: 100px 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; background: #000; position: relative; z-index: 10;">
-    
-    <div style="border: 1px solid #333; padding: 40px; border-radius: 20px; width: 280px; text-align: center; background: rgba(255,255,255,0.02); transition: 0.3s;">
-        <h3 style="color: #fff;">Uzay Yolcusu</h3>
-        <p style="font-size: 2.5rem; margin: 20px 0; color: #fff;">$0 <span style="font-size: 1rem; opacity: 0.5;">/ay</span></p>
-        <ul style="list-style: none; padding: 0; color: #ccc; line-height: 2.5; font-size: 0.9rem;">
-            <li>✓ 1 Aktif AR Sahnesi</li>
-            <li>✓ Temel Uzay Modelleri</li>
-            <li>✓ Topluluk Desteği</li>
-        </ul>
-        <a href="#" class="cta-button" style="display: block; padding: 12px; margin-top: 25px; font-size: 0.8rem; text-align: center;">Hemen Başla</a>
-    </div>
-
-    <div style="border: 2px solid #00FF00; padding: 40px; border-radius: 20px; width: 280px; text-align: center; background: rgba(0, 255, 0, 0.03); box-shadow: 0 0 30px rgba(0, 255, 0, 0.1); position: relative; transform: scale(1.05);">
-        <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #00FF00; color: #000; padding: 5px 15px; border-radius: 20px; font-size: 0.7rem; font-weight: bold;">EN POPÜLER</div>
-        <h3 style="color: #00FF00;">Filo Komutanı</h3>
-        <p style="font-size: 2.5rem; margin: 20px 0; color: #fff;">$19 <span style="font-size: 1rem; opacity: 0.5;">/ay</span></p>
-        <ul style="list-style: none; padding: 0; color: #fff; line-height: 2.5; font-size: 0.9rem;">
-            <li>✓ Sınırsız AR Sahnesi</li>
-            <li>✓ Özel 3D Gemi Editörü</li>
-            <li>✓ 7/24 Teknik Destek</li>
-            <li>✓ Reklamsız Deneyim</li>
-        </ul>
-        <a href="#" class="cta-button" style="display: block; padding: 12px; margin-top: 25px; font-size: 0.8rem; background: #00FF00; color: #000; text-align: center;">Satın Al</a>
-    </div>
-</section>
-
-
-        <section style="padding: 100px 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; background: #000; position: relative; z-index: 10;">
-    
-    <div style="border: 1px solid #333; padding: 40px; border-radius: 20px; width: 280px; text-align: center; background: rgba(255,255,255,0.02); transition: 0.3s;" onmouseover="this.style.borderColor='#00FF00'" onmouseout="this.style.borderColor='#333'">
-        <h3 style="color: #fff; margin-top: 0;">Başlangıç</h3>
-        <p style="font-size: 2.5rem; margin: 20px 0; color: #fff;">$0 <span style="font-size: 1rem; opacity: 0.5;">/ay</span></p>
-        <ul style="list-style: none; padding: 0; color: #ccc; line-height: 2.5; font-size: 0.9rem;">
-            <li>✓ 1 Aktif AR Sahnesi</li>
-            <li>✓ Temel Uzay Modelleri</li>
-            <li>✓ Topluluk Desteği</li>
-        </ul>
-        <a href="#" class="cta-button" style="display: block; padding: 12px; margin-top: 25px; font-size: 0.8rem; text-align: center;">Hemen Başla</a>
-    </div>
-
-    <div style="border: 2px solid #00FF00; padding: 40px; border-radius: 20px; width: 280px; text-align: center; background: rgba(0, 255, 0, 0.03); box-shadow: 0 0 30px rgba(0, 255, 0, 0.1); position: relative; transform: scale(1.05);">
-        <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #00FF00; color: #000; padding: 5px 15px; border-radius: 20px; font-size: 0.7rem; font-weight: bold;">EN POPÜLER</div>
-        <h3 style="color: #00FF00; margin-top: 0;">Kaptan Sürümü</h3>
-        <p style="font-size: 2.5rem; margin: 20px 0; color: #fff;">$19 <span style="font-size: 1rem; opacity: 0.5;">/ay</span></p>
-        <ul style="list-style: none; padding: 0; color: #fff; line-height: 2.5; font-size: 0.9rem;">
-            <li>✓ Sınırsız AR Sahnesi</li>
-            <li>✓ Özel 3D Gemi Editörü</li>
-            <li>✓ 7/24 Teknik Destek</li>
-            <li>✓ Reklamsız Deneyim</li>
-        </ul>
-        <a href="#" class="cta-button" style="display: block; padding: 12px; margin-top: 25px; font-size: 0.8rem; background: #00FF00; color: #000; text-align: center;">Satın Al</a>
-    </div>
-
-</section>
-
-        <section style="padding: 100px 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; background: #000;">
-    
-    <div style="border: 1px solid #333; padding: 40px; border-radius: 20px; width: 300px; text-align: center; transition: 0.3s;" onmouseover="this.style.borderColor='#00FF00'" onmouseout="this.style.borderColor='#333'">
-        <h3 style="color: #fff;">Başlangıç</h3>
-        <p style="font-size: 2rem; margin: 20px 0;">$0 <span style="font-size: 1rem; opacity: 0.5;">/ay</span></p>
-        <ul style="list-style: none; padding: 0; color: #ccc; line-height: 2;">
-            <li>1 AR Sahnesi</li>
-            <li>Topluluk Desteği</li>
-            <li>Standart Modeller</li>
-        </ul>
-        <a href="#" class="cta-button" style="display: inline-block; padding: 10px 30px; margin-top: 20px; font-size: 0.8rem;">Hemen Başla</a>
-    </div>
-
-    <div style="border: 2px solid #00FF00; padding: 40px; border-radius: 20px; width: 300px; text-align: center; background: rgba(0, 255, 0, 0.05); box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);">
-        <h3 style="color: #00FF00;">Pro Sürüm</h3>
-        <p style="font-size: 2rem; margin: 20px 0;">$19 <span style="font-size: 1rem; opacity: 0.5;">/ay</span></p>
-        <ul style="list-style: none; padding: 0; color: #fff; line-height: 2;">
-            <li>Sınırsız AR Sahnesi</li>
-            <li>Özel 3D Modeller</li>
-            <li>Öncelikli Destek</li>
-            <li>Reklamsız Deneyim</li>
-        </ul>
-        <a href="#" class="cta-button" style="display: inline-block; padding: 10px 30px; margin-top: 20px; font-size: 0.8rem; background: #00FF00; color: #000;">Satın Al</a>
-    </div>
-
-</section>
-
         h1 {
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 10vw, 5rem);
             text-transform: uppercase;
-            letter-spacing: 10px;
+            letter-spacing: 12px;
             margin: 0;
             text-shadow: 0 0 20px #00FF00;
         }
@@ -182,13 +90,46 @@
             transition: 0.3s;
             text-decoration: none;
             border-radius: 50px;
-            margin-top: 20px;
+            margin-top: 25px;
+            display: inline-block;
         }
 
         .cta-button:hover {
             background: #00FF00;
             color: black;
             box-shadow: 0 0 30px #00FF00;
+        }
+
+        /* FİYATLANDIRMA BÖLÜMÜ */
+        .pricing-container {
+            padding: 120px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            background: #050505;
+            position: relative;
+        }
+
+        .pricing-card {
+            border: 1px solid #222;
+            padding: 50px 30px;
+            border-radius: 25px;
+            width: 300px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.01);
+            transition: 0.4s;
+        }
+
+        .pricing-card:hover {
+            border-color: #00FF00;
+            transform: translateY(-15px);
+            background: rgba(0, 255, 0, 0.02);
+        }
+
+        .featured-card {
+            border: 2px solid #00FF00;
+            box-shadow: 0 0 40px rgba(0, 255, 0, 0.1);
         }
     </style>
 </head>
@@ -197,20 +138,47 @@
     <div id="stars"></div>
 
     <nav>
-        <a href="#" style="color: #fff; text-decoration: none; margin-right: 30px; font-size: 0.9rem; opacity: 0.8;">Giriş Yap</a>
-        <a href="#" class="cta-button" style="padding: 10px 25px; font-size: 0.85rem; margin-top: 0;">Ücretsiz Kaydol</a>
+        <a href="#">Giriş Yap</a>
+        <a href="#" class="cta-button" style="padding: 10px 25px; font-size: 0.8rem; margin-top: 0;" id="nav-btn">Ücretsiz Kaydol</a>
     </nav>
 
     <div class="hero">
         <h1>SPACE GAME AR</h1>
-        <p style="color: #fff; opacity: 0.8;">Gerçek Dünya, Senin Oyun Alanın.</p>
+        <p style="color: #fff; opacity: 0.6; margin: 20px 0; letter-spacing: 2px;">GERÇEK DÜNYA, SENİN OYUN ALANIN.</p>
         <a href="https://github.com/bgbrthrs/SpaceGameAR" target="_blank" class="cta-button">GITHUB'DA İNCELE</a>
+        <p style="margin-top: 40px; color: #555; font-size: 0.8rem;">Aşağı Kaydır ve Paketleri İncele ↓</p>
     </div>
 
+    <section class="pricing-container">
+        <div class="pricing-card">
+            <h3 style="color: #fff;">Acemi Astronot</h3>
+            <p style="font-size: 3rem; margin: 20px 0; color: #fff;">$0</p>
+            <ul style="list-style: none; padding: 0; color: #888; line-height: 2.5;">
+                <li>✓ 1 Aktif AR Sahnesi</li>
+                <li>✓ Temel Uzay Kitleri</li>
+                <li>✓ Topluluk Desteği</li>
+            </ul>
+            <a href="#" class="cta-button" style="width: 80%; font-size: 0.8rem;">Hemen Başla</a>
+        </div>
+
+        <div class="pricing-card featured-card">
+            <span style="background: #00FF00; color: #000; padding: 5px 15px; border-radius: 20px; font-size: 0.7rem; font-weight: bold;">EN POPÜLER</span>
+            <h3 style="color: #00FF00; margin-top: 15px;">Galaksi Lideri</h3>
+            <p style="font-size: 3rem; margin: 20px 0; color: #fff;">$19</p>
+            <ul style="list-style: none; padding: 0; color: #fff; line-height: 2.5;">
+                <li>✓ Sınırsız AR Sahnesi</li>
+                <li>✓ Özel 3D Gemi Tasarımı</li>
+                <li>✓ 7/24 VIP Destek</li>
+                <li>✓ Reklamsız Deneyim</li>
+            </ul>
+            <a href="#" class="cta-button" style="width: 80%; font-size: 0.8rem; background: #00FF00; color: #000;">Satın Al</a>
+        </div>
+    </section>
+
     <script>
-        // Kaydol butonuna tıklandığında mesaj ver
-        document.querySelectorAll('.cta-button')[0].onclick = () => {
-             alert("SpaceGameAR SaaS Platformu yakında sizlerle!");
+        document.getElementById('nav-btn').onclick = (e) => {
+            e.preventDefault();
+            alert("SpaceGameAR SaaS Platformuna hoş geldiniz! Kayıtlar yakında açılacak. 🚀");
         };
     </script>
 
