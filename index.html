@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceGameAR | Mission Alpha</title>
+    <style>
+        body {
+            margin: 0;
+            background: #0a0a0a;
+            color: #00FF00;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden; /* Sayfanın sağa sola kaymasını engeller */
+        }
+
+        /* Yıldız Animasyonu */
+        @keyframes move-stars {
+            from { transform: translateY(0); }
+            to { transform: translateY(-1000px); }
+        }
+
+        #stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200%;
+            background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+            animation: move-stars 100s linear infinite;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+        }
+
+        h1 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            margin: 0;
+            text-shadow: 0 0 20px #00FF00;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #fff;
+            opacity: 0.8;
+            margin: 20px 0;
+        }
+
+        .cta-button {
+            padding: 15px 40px;
+            border: 2px solid #00FF00;
+            background: transparent;
+            color: #00FF00;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            border-radius: 50px;
+        }
+
+        .cta-button:hover {
+            background: #00FF00;
+            color: black;
+            box-shadow: 0 0 30px #00FF00;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="stars"></div>
+
+    <div class="hero">
+        <h1>SPACE GAME AR</h1>
+        <p>Gerçek Dünya, Senin Oyun Alanın.</p>
+        <a href="https://github.com/bgbrthrs/SpaceGameAR" target="_blank" class="cta-button">GITHUB'DA İNCELE</a>
+    </div>
+
+</body>
+</html>
